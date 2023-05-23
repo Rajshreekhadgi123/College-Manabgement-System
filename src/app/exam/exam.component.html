@@ -1,0 +1,142 @@
+<app-header></app-header>
+
+
+<!--Registration Form -->
+<div class="back">
+
+
+
+  <div class="back-content">
+    <!-- Button trigger modal -->
+    <h2>Exam Schedule</h2>
+    <button type="button" *ngIf="registernow" class="btn mod-btn " data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Register Now
+    </button>
+    <button type="button" *ngIf="editnow" class="btn mod-btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Edit Customers
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Exam Regsitration</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <label for="fname" class="form-label">Examinar Details:</label>
+                  <input type="text" [(ngModel)]="fname" class="form-control" placeholder="Enter first name"
+                    name="fname">
+                </div>
+                <div class="col">
+                  <input type="text" [(ngModel)]="lname" class="form-control" placeholder="Enter last name" name="lname"
+                    style="margin-top: 28px;">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="email" class="form-label mt-3">Student ID:</label>
+                  <input type="text" [(ngModel)]="id" class="form-control" placeholder="Enter email" name="email">
+                </div>
+                <div class="col">
+                  <label for="fname" class="form-label mt-3">Enrollment Number:</label>
+                  <input type="text" [(ngModel)]="enroll" class="form-control" placeholder="Enter password" name="pswd">
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Name of Examination</label>
+                  <input type="text" id="birthday" [(ngModel)]="exam" class="form-control" name="birthday">
+                </div>
+
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Day of Examination:</label>
+                  <select class="form-select" [(ngModel)]="day" [ngModelOptions]="{standalone:true}"
+                    aria-label="Default select example">
+                    <option selected>Please Select</option>
+                    <option value="monday" ng-options="data.monday">monday</option>
+                    <option value="tuesday" ng-options="data.tuseday">tuesday</option>
+                    <option value="wednesday" ng-options="data.wednesday">wednesday</option>
+                    <option value="thursday" ng-opttions="data.thursday">thursday</option>
+                    <option value="friday" ng-opttions="data.friday">friday</option>
+                    <option value="saturday" ng-opttions="data.saturday">saturday</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="state" class="form-label mt-3">Subject Name</label>
+                  <input type="text" [(ngModel)]="subject" class="form-control" placeholder="Enter state" name="state">
+                </div>
+
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Date of Examination:</label>
+                  <input type="date" [(ngModel)]="date" id="date" class="form-control" name="birthday">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" *ngIf="hideregister" (click)="register()" class="btn btn1 btn-warning"
+              data-bs-dismiss="modal">Register</button>
+            <button type="button" *ngIf="hideupdate" (click)="update()" class="btn btn2 btn-secondary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="filter">
+  <form class="d-flex formsearch">
+    <input class="form-control inp me-2" [(ngModel)]="examsrch" [ngModelOptions]="{standalone:true}" type="search"
+      placeholder="Search" aria-label="Search">
+
+    <!-- <button class="btn btn-outline-light" type="submit">Search</button> -->
+  </form>
+</div>
+
+
+<!-- table -->
+
+<table class="table mt-5">
+  <thead class="table-secondary ">
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Student ID</th>
+      <th>Enrollment Number</th>
+      <th>Exam</th>
+      <th>Day</th>
+      <th>Subject</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of examRegistration | filter:examsrch ; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{data.fname}}</td>
+      <td>{{data.lname}}</td>
+      <td>{{data.id}}</td>
+      <td>{{data.enroll}}</td>
+      <td>{{data.exam}}</td>
+      <td>{{data.day}}</td>
+      <td>{{data.subject}}</td>
+      <td>{{data.date}}</td>
+      <td><i style="font-size:24px;cursor: pointer;" class="fa-solid fa-pen-to-square" (click)="edit(i,data)"></i><i
+          style='font-size:24px;cursor:  pointer;padding-left: 20px;color: red;' class='fas'
+          (click)="delete(i);">&#xf2ed;</i></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,78 @@
+
+.formgroup h3{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+}
+.formgroup .form-text{
+    text-align: center;
+}
+form label{
+    padding-left: 190px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(102, 100, 100);
+}
+form input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 300px;
+    margin-left: 85px;
+}
+form .form-label2{
+    padding-left: 169px;
+}
+form .form-label3{
+    padding-left: 180px;
+}
+form .form-label4{
+    padding-left: 195px;
+}
+
+.formgroup img{
+    height: 630px;
+    background-size: cover;
+    position: relative;
+}
+button{
+   width: 300px;
+   margin-top: 30px;
+   border-radius: 20px;
+   margin-left: 85px;
+}
+.formgroup .content h1{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: rgb(253, 251, 251);
+    text-align: center;
+    font-size: 5rem;
+
+   
+}
+.formgroup .content h3{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: rgb(253, 252, 252);
+    text-align: center;
+    font-size: 3rem;
+
+   
+}
+.content button{
+    width: 100px;
+    background-color: rgba(59, 59, 59, 0.021);
+    border: 1px solid rgb(231, 194, 26);
+    color: rgb(231, 194, 26);
+    padding-top: 5px;
+}
+.content button:hover{
+    background-color: rgb(231, 194, 26);
+    color: black;
+}

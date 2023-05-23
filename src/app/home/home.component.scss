@@ -1,0 +1,47 @@
+.back-img img {
+    // background-image:  url("../../assets/clg2.jpg");
+    height: 570px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: -610px;
+    filter: brightness(50%);
+    width: 100%;
+   
+  }
+  
+  .back-text {
+    text-align: center;
+    position: absolute;
+    top: 43%;
+    left: 15%;
+    // transform: translate(-50%, -50%);
+    // color: white;
+    font-weight: 600;
+  }
+  h1{
+    font-size: 70px;
+    color: rgb(255, 255, 255);
+  
+  }
+  .back-text button{
+    margin-top: 50px;
+    padding: 22px 28px;
+  }
+
+ 
+  .card-items .card{
+    
+    margin: 100px auto;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    border: none;
+  }
+
+  .card-items h3{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .card-items button{
+    margin-top: 20px;
+  }

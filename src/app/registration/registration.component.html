@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row formgroup">
+    <div class="col-lg-8">
+      <img src="assets/uni2.jpeg" alt="" style="filter: brightness(60%);">
+      <div class="content">
+        <h1 style="margin-bottom: 30px;">WELCOME</h1>
+        <h3 style="margin-bottom:150px; padding-right: 40px;">TO <br><br>
+          COLLEGE MANAGEMENT SYSTEM</h3>
+      </div>
+    </div>
+    <div class="col-lg-4 back">
+
+
+      <h3>User Registration</h3>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputfname" class="form-label">Full Name</label>
+          <input type="text" class="form-control" [(ngModel)]="fname" id="exampleInputname" aria-describedby="fnameHelp"
+            name="fname">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnum" class="form-label2">Student Number</label>
+          <input type="text" class="form-control" [(ngModel)]="stuno" id="exampleInputnumber" name="stuno">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label3">Email address</label>
+          <input type="email" class="form-control" [(ngModel)]="email" id="exampleInputEmail"
+            aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text " style="margin-left: 35px;">We'll never share your email with anyone
+            else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword" class="form-label4">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" id="exampleInputPassword" name="password">
+          <div id="emailHelp" class="form-text" style="margin-left: 35px;">Forgot Password?</div>
+
+        </div>
+
+
+        <button mat-raised-button color="accent" (click)="registerdata();" routerLink="/login">SIGN UP</button>
+      </form>
+
+
+    </div>
+  </div>
+</div>

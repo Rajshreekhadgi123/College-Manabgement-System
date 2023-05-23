@@ -1,0 +1,159 @@
+<app-header></app-header>
+
+
+<!--Registration Form -->
+<div class="back">
+
+
+
+  <div class="back-content">
+    <!-- Button trigger modal -->
+    <h2>Staff Regsitration</h2>
+    <button type="button" *ngIf="registernow" class="btn mod-btn " data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Register Now
+    </button>
+    <button type="button" *ngIf="editnow" class="btn mod-btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Edit Customers
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Staff Regsitration</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <label for="fname" class="form-label">Staff Details:</label>
+                  <input type="text" [(ngModel)]="fname" class="form-control" placeholder="Enter first name"
+                    name="fname">
+                </div>
+                <div class="col">
+                  <input type="text" [(ngModel)]="lname" class="form-control" placeholder="Enter last name" name="lname"
+                    style="margin-top: 28px;">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="email" class="form-label mt-3">Email:</label>
+                  <input type="email" [(ngModel)]="email" class="form-control" placeholder="Enter email" name="email">
+                </div>
+                <div class="col">
+                  <label for="fname" class="form-label mt-3">Password:</label>
+                  <input type="password" [(ngModel)]="password" class="form-control" placeholder="Enter password"
+                    name="pswd">
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="number" class="form-label mt-3">contact Number:</label>
+                  <input type="phone" [(ngModel)]="phone" id="birthday" class="form-control" name="birthday">
+                </div>
+
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Status:</label>
+                  <select class="form-select" [(ngModel)]="status" [ngModelOptions]="{standalone:true}"
+                    aria-label="Default select example">
+                    <option selected>Please Select</option>
+                    <option value="1st Year" ng-options="data.1st Year">1st Year</option>
+                    <option value="2nd Year" ng-options="data.2nd Year">2nd Year</option>
+                    <option value="3rd Year" ng-options="data.3rd Year">3rd Year</option>
+                    <option value="4th Year" ng-opttions="data.4th Year">4th Year</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="state" class="form-label mt-3">City:</label>
+                  <input type="text" [(ngModel)]="city" class="form-control" placeholder="Enter state" name="state">
+                </div>
+                <div class="col">
+                  <label for="state" class="form-label mt-3">Home Address:</label>
+                  <input type="text" [(ngModel)]="address" class="form-control" placeholder="Enter state" name="state">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="state" class="form-label mt-3">State:</label>
+                  <input type="text" [(ngModel)]="state" class="form-control" placeholder="Enter State" name="state">
+                </div>
+                <div class="col">
+                  <label for="pin" class="form-label mt-3">Pin Code:</label>
+                  <input type="text" [(ngModel)]="pin" class="form-control" placeholder="Enter pin Code" name="pin">
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" *ngIf="hideregister" (click)="register()" class="btn btn1 btn-warning"
+              data-bs-dismiss="modal">Register</button>
+            <button type="button" *ngIf="hideupdate" (click)="update()" class="btn btn2 btn-secondary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="filter">
+  <form class="d-flex formsearch">
+    <input class="form-control inp me-2" [(ngModel)]="staffsrch" [ngModelOptions]="{standalone:true}" type="search"
+      placeholder="Search" aria-label="Search">
+
+    <!-- <button class="btn btn-outline-light" type="submit">Search</button> -->
+  </form>
+</div>
+
+
+<!-- table -->
+
+<table class="table mt-5">
+  <thead class="table-secondary ">
+    <tr>
+      <th>Sr.No</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Phone</th>
+      <th>Status</th>
+      <th>city</th>
+      <th>State</th>
+      <th>Address</th>
+      <th>Pin Code</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of staffRegistration | filter:staffsrch ; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{data.fname}}</td>
+      <td>{{data.lname}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.password}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.status}}</td>
+      <td>{{data.city}}</td>
+      <td>{{data.state}}</td>
+      <td>{{data.address}}</td>
+      <td>{{data.pin}}</td>
+      <td><i style="font-size:24px;cursor: pointer;" class="fa-solid fa-pen-to-square" (click)="edit(i,data)"></i><i
+          style='font-size:24px;cursor:  pointer;padding-left: 20px;color: red;' class='fas'
+          (click)="delete(i);">&#xf2ed;</i></td>
+    </tr>
+  </tbody>
+</table>

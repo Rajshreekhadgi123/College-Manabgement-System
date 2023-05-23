@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row formgroup">
+    <div class="col-lg-8">
+      <h3>User Login</h3>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label">Email address</label>
+          <input type="email" [(ngModel)]="email" class="form-control" id="exampleInputEmail"
+            aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword" class="form-label2">Password</label>
+          <input type="password" [(ngModel)]="password" class="form-control" id="exampleInputPassword" name="password">
+          <div id=" emailHelp" class="form-text">Forgot Password?</div>
+
+        </div>
+
+        <button mat-raised-button color="accent" (click)="logindata();" routerLink="/home">SIGN IN</button>
+      </form>
+    </div>
+    <div class="col-lg-4 back">
+      <img src="assets/gg.jpg" alt="">
+      <div class="content">
+        <h2 style="margin-bottom: 30px;">New Here?</h2>
+        <h2 style="margin-bottom:150px;">Register Now</h2>
+        <button mat-raised-button color="accent" routerLink="/registration">SIGN UP</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

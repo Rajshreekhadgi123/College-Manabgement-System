@@ -1,0 +1,219 @@
+<app-header></app-header>
+
+
+<!--Registration Form -->
+<div class="back">
+  <div class="alert alert-success" *ngIf="alertmessage" role="alert" style="width: 600px; margin: 0 auto; ">
+    Student Registered Successfully..!!
+  </div>
+  <div class="alert alert-success" *ngIf=" updatemessage" role="alert" style="width: 600px; margin: 0 auto; ">
+    Student data updated Successfully..!!
+  </div>
+  <div class="back-content">
+    <!-- Button trigger modal -->
+    <h2>Student Registration</h2>
+    <button type="button" *ngIf="registernow" class="btn mod-btn " data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Register Now
+    </button>
+    <button type="button" *ngIf="editnow" class="btn mod-btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Edit Now
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Student Regsitration</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <label for="fname" class="form-label">Student Details:</label>
+                  <input type="text" [(ngModel)]="fname" class="form-control" placeholder="Enter first name"
+                    name="fname">
+                </div>
+                <div class="col">
+                  <input type="text" [(ngModel)]="lname" class="form-control" placeholder="Enter last name" name="lname"
+                    style="margin-top: 28px;">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="email" class="form-label mt-3">Email:</label>
+                  <input type="email" [(ngModel)]="email" class="form-control" placeholder="Enter email" name="email">
+                </div>
+                <div class="col">
+                  <label for="fname" class="form-label mt-3">Password:</label>
+                  <input type="password" [(ngModel)]="password" class="form-control" placeholder="Enter password"
+                    name="pswd">
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col">
+                  <label for="fname" class="form-label mt-3">Student ID:</label>
+                  <input type="tel" [(ngModel)]="studentid" class="form-control" placeholder="Enter phone" name="phone">
+                </div>
+
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Year Level:</label>
+                  <select class="form-select" [(ngModel)]="year" [ngModelOptions]="{standalone:true}"
+                    aria-label="Default select example">
+                    <option selected>Please Select</option>
+                    <option value="1st Year" ng-options="data.1st Year">1st Year</option>
+                    <option value="2nd Year" ng-options="data.2nd Year">2nd Year</option>
+                    <option value="3rd Year" ng-options="data.3rd Year">3rd Year</option>
+                    <option value="4th Year" ng-opttions="data.4th Year">4th Year</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 mt-3">
+                  <label for="food" class="form-label">Drink Image:</label>
+                  <input type="file" (change)="onselectFile($event)" class="form-control" id="food" name="pswd">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="birthday" class="form-label mt-3">Degree Program:</label>
+                  <select class="form-select" [(ngModel)]="degree" [ngModelOptions]="{standalone:true}"
+                    aria-label="Default select example">
+                    <option selected>Please Select</option>
+                    <option value="Bsc" ng-options="data.Bsc">Bsc</option>
+                    <option value="BA" ng-options="data.BA">BA</option>
+                    <option value="BBA" ng-options="data.BBA">BBA</option>
+                    <option value="BCCA" ng-opttions="data.BCCA">BCCA</option>
+                    <option value="BCA" ng-opttions="data.BCA">BCA</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <label for="state" class="form-label mt-3">Phone Number:</label>
+                  <input type="text" [(ngModel)]="phone" class="form-control" placeholder="Enter state" name="state">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <label for="state" class="form-label mt-3">State:</label>
+                  <input type="text" [(ngModel)]="state" class="form-control" placeholder="Enter State" name="state">
+                </div>
+                <div class="col">
+                  <label for="pin" class="form-label mt-3">Pin Code:</label>
+                  <input type="text" [(ngModel)]="pin" class="form-control" placeholder="Enter pin Code" name="pin">
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" *ngIf="hideregister" (click)="register();" class="btn btn1 btn-warning"
+              data-bs-dismiss="modal">Register</button>
+            <button type="button" *ngIf="hideupdate" (click)="update()" class="btn btn2 btn-secondary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="filter">
+  <form class="d-flex formsearch">
+    <input class="form-control inp me-2" [(ngModel)]="stusearch" [ngModelOptions]="{standalone:true}" type="search"
+      placeholder="Search" aria-label="Search">
+  </form>
+</div>
+
+<!-- table -->
+<!-- 
+<table class="table mt-5">
+  <thead class="table-secondary ">
+    <tr>
+      <th>Sr.No</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Student ID</th>
+      <th>Year</th>
+      <th>Degree</th>
+      <th>Phone</th>
+      <th>State</th>
+      <th>Pin Code</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of sturegistration | filter:stusearch ; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{data.fname}}</td>
+      <td>{{data.lname}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.password}}</td>
+      <td>{{data.studentid}}</td>
+      <td>{{data.year}}</td>
+      <td>{{data.degree}}</td>
+      <td>{{data.phone}}</td>
+      <td>{{data.state}}</td>
+      <td>{{data.pin}}</td>
+      <td><i style="font-size:24px;cursor: pointer;" (click)="edit(i,data)" class="fa-solid fa-pen-to-square"></i><i
+          style='font-size:24px;cursor:  pointer;padding-left: 20px;color:black;' class='fas'
+          (click)="delete(i);">&#xf2ed;</i></td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- Adding Food items to another card -->
+
+<div class="card-add">
+
+  <h3 style="font-size: 20px; font-weight: bold; text-align: center;">Student Details</h3>
+
+  <div class="card" style="background-color: rgb(255, 255, 255); ">
+
+    <div class="row g-0 " *ngFor="let data of sturegistration ; let i = index">
+      <div class="col-md-4 ">
+        <img [src]="data.stuimg" class="img-fluid  " alt="..." width="200" height="200"
+          style="margin-left: 40px; margin-top: 30px;background-color: grey; border-radius: 25px">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body ">
+          <div class="btns">
+            <button type="button" (click)="edit(i , data)" class="btn btn-outline-warning">Edit</button>
+            <button type="button" (click)="delete(i)" class="btn btn-outline-danger">Delete</button>
+          </div>
+
+          <div class="row mt-5">
+
+            <div class="col-lg-6">
+              <p> Student Name :</p> <span>{{data.fname}}</span><br><br>
+              <p> Email :</p> <span>{{data.email}}</span><br><br>
+              <p> Student ID :</p> <span>{{data.studentid}}</span><br><br>
+              <p> Year :</p> <span>{{data.year}}</span><br><br>
+
+            </div>
+            <div class="col-lg-6">
+              <p> Degree:</p> <span>{{data.degree}}</span><br><br>
+              <p> Phone Number :</p> <span>{{data.phone}}</span><br><br>
+              <p> State :</p> <span>{{data.state}}</span><br><br>
+              <p> Pin Code :</p> <span>{{data.pin}}</span><br><br>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+    </div>
+
+  </div>
+  <!-- <h4 style="text-align: center;">Total :</h4> -->
+</div>
